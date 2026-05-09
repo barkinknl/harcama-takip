@@ -22,13 +22,7 @@
   margin: 0 auto;
 }
 
-@media (max-width: 760px) {
-  .content {
-    padding: var(--space-4) var(--space-3);
-    padding-bottom: 130px;
-    gap: var(--space-3);
-  }
-}
+
 
 .insightsRow {
   display: grid;
@@ -128,5 +122,13 @@
   .content {
     padding: var(--space-4);
     gap: var(--space-4);
+  }
+}
+
+@media (max-width: 760px) {
+  .content {
+    padding: var(--space-4) var(--space-3);
+    padding-bottom: 130px;
+    gap: var(--space-3);
   }
 }
