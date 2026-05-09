@@ -9,6 +9,9 @@
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-sm);
+  min-width: 0;
+  width: 100%;
+  overflow: hidden;
 }
 
 /* ---------- year control ---------- */
@@ -67,9 +70,12 @@
   align-items: center;
   gap: 4px;
   flex: 1;
+  min-width: 0;
   overflow-x: auto;
+  overflow-y: hidden;
   scroll-behavior: smooth;
   scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
 }
 
 .scroll::-webkit-scrollbar {

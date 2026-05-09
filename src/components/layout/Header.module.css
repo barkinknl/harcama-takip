@@ -301,3 +301,37 @@
     padding-right: var(--space-3);
   }
 }
+
+@media (max-width: 540px) {
+  .header {
+    padding: var(--space-3);
+    gap: var(--space-2);
+  }
+
+  .left {
+    gap: var(--space-2);
+  }
+
+  .right {
+    gap: 4px;
+  }
+
+  /* Telefonda arama kutusu yer kaplıyor — gizle, gerekirse ayrı bir
+     arama akışı eklenecek (v1.5). Hamburger + add btn + tema + avatar yeter. */
+  .searchBox {
+    display: none;
+  }
+
+  /* İkon butonları ve avatar küçülsün */
+  .iconBtn,
+  .menuBtn,
+  .addBtn,
+  .avatar {
+    width: 36px;
+    height: 36px;
+  }
+
+  .addBtn {
+    padding: 0;
+  }
+}
