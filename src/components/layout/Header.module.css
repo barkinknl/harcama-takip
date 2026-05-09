@@ -317,21 +317,21 @@
   }
 
   /* Telefonda arama kutusu yer kaplıyor — gizle, gerekirse ayrı bir
-     arama akışı eklenecek (v1.5). Hamburger + add btn + tema + avatar yeter. */
+     arama akışı eklenecek (v1.5). */
   .searchBox {
+    display: none;
+  }
+
+  /* Plus butonu mobilde gizli — bottom nav'daki FAB onun görevini görüyor */
+  .addBtn {
     display: none;
   }
 
   /* İkon butonları ve avatar küçülsün */
   .iconBtn,
   .menuBtn,
-  .addBtn,
   .avatar {
     width: 36px;
     height: 36px;
-  }
-
-  .addBtn {
-    padding: 0;
   }
 }

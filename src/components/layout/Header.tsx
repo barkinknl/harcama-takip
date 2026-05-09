@@ -5,7 +5,6 @@ import Link from "next/link";
 import {
   Menu,
   Search,
-  Bell,
   Sun,
   Moon,
   Plus,
@@ -113,14 +112,6 @@ export function Header({
           aria-label="Tema değiştir"
         >
           {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
-        </button>
-
-        <button
-          type="button"
-          className={styles.iconBtn}
-          aria-label="Bildirimler"
-        >
-          <Bell size={18} />
         </button>
 
         <div className={styles.userMenu} ref={menuRef}>
