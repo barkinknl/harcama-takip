@@ -1,0 +1,211 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+
+/* ---------- header (Excel'deki turuncu/mercan başlık) ---------- */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background: linear-gradient(135deg, var(--salmon-300), var(--salmon-500));
+  color: #fff;
+  border-bottom: 1px solid var(--salmon-600);
+}
+
+.headerInner {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.title {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.addBtn {
+  width: 26px;
+  height: 26px;
+  border-radius: var(--radius-md);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.25);
+  color: #fff;
+  transition: background var(--transition-base), transform var(--transition-fast);
+}
+
+.addBtn:hover {
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(1.08);
+}
+
+/* ---------- tablo ---------- */
+.tableWrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.list {
+  list-style: none;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 56px 1fr 1.5fr;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 10px var(--space-4);
+  border-bottom: 1px solid var(--border-grid);
+  font-size: 13px;
+  position: relative;
+  transition: background var(--transition-base);
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+.list .row:hover {
+  background: var(--salmon-100);
+}
+
+[data-theme="dark"] .list .row:hover {
+  background: rgba(240, 160, 142, 0.08);
+}
+
+.rowHeader {
+  background: var(--bg-tertiary);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--text-tertiary);
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.rowHeader:hover {
+  background: var(--bg-tertiary);
+}
+
+.cellDate {
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-secondary);
+}
+
+.cellAmount {
+  font-weight: 700;
+  color: var(--sage-600);
+  font-variant-numeric: tabular-nums;
+}
+
+[data-theme="dark"] .cellAmount {
+  color: var(--sage-300);
+}
+
+.cellDesc {
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.deleteBtn {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-tertiary);
+  background: transparent;
+  opacity: 0;
+  transition: opacity var(--transition-base), color var(--transition-base),
+    background var(--transition-base);
+}
+
+.row:hover .deleteBtn {
+  opacity: 1;
+}
+
+.deleteBtn:hover {
+  color: var(--coral-600);
+  background: var(--coral-100);
+}
+
+[data-theme="dark"] .deleteBtn:hover {
+  color: var(--coral-300);
+  background: rgba(238, 154, 146, 0.15);
+}
+
+/* ---------- empty ---------- */
+.empty {
+  padding: var(--space-6) var(--space-4);
+  text-align: center;
+  color: var(--text-tertiary);
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.emptyBtn {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--salmon-500);
+  padding: 6px 12px;
+  border-radius: var(--radius-md);
+  background: var(--salmon-100);
+  transition: background var(--transition-base);
+}
+
+.emptyBtn:hover {
+  background: var(--salmon-300);
+  color: #fff;
+}
+
+[data-theme="dark"] .emptyBtn {
+  background: rgba(240, 160, 142, 0.12);
+  color: var(--accent-salmon);
+}
+
+/* ---------- total bar ---------- */
+.totalBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px var(--space-4);
+  background: var(--bg-tertiary);
+  border-top: 1px solid var(--border-grid);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.totalValue {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--sage-600);
+  font-variant-numeric: tabular-nums;
+}
+
+[data-theme="dark"] .totalValue {
+  color: var(--sage-300);
+}

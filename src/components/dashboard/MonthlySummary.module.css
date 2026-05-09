@@ -1,0 +1,236 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+
+/* ---------- header (Excel'deki sage başlık) ---------- */
+.header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+  background: var(--sage-100);
+  border-bottom: 1px solid var(--sage-200);
+}
+
+[data-theme="dark"] .header {
+  background: linear-gradient(180deg, rgba(125, 187, 124, 0.12), rgba(125, 187, 124, 0.06));
+  border-bottom-color: var(--border-strong);
+}
+
+.headerInner {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  min-width: 0;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--sage-700);
+  letter-spacing: -0.01em;
+}
+
+[data-theme="dark"] .title {
+  color: var(--sage-300);
+}
+
+.month {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--sage-600);
+  padding: 3px 8px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: var(--radius-full);
+}
+
+[data-theme="dark"] .month {
+  background: rgba(0, 0, 0, 0.25);
+  color: var(--sage-300);
+}
+
+.editBtn {
+  width: 30px;
+  height: 30px;
+  border-radius: var(--radius-md);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--sage-700);
+  background: rgba(255, 255, 255, 0.5);
+  transition: background var(--transition-base), transform var(--transition-fast);
+}
+
+.editBtn:hover {
+  background: rgba(255, 255, 255, 0.9);
+  transform: scale(1.05);
+}
+
+[data-theme="dark"] .editBtn {
+  background: rgba(0, 0, 0, 0.25);
+  color: var(--sage-300);
+}
+
+[data-theme="dark"] .editBtn:hover {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+/* ---------- rows (Excel'deki pembe satırlar) ---------- */
+.rows {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-5);
+  background: var(--coral-50);
+  border-bottom: 1px solid var(--coral-100);
+  transition: background var(--transition-base);
+  animation: rowIn var(--transition-base) ease-out backwards;
+}
+
+@keyframes rowIn {
+  from { opacity: 0; transform: translateX(-6px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+.row:hover {
+  background: var(--coral-100);
+}
+
+[data-theme="dark"] .row {
+  background: rgba(238, 154, 146, 0.06);
+  border-bottom-color: var(--border-subtle);
+}
+
+[data-theme="dark"] .row:hover {
+  background: rgba(238, 154, 146, 0.10);
+}
+
+.rowLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.rowLabel {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--coral-600);
+}
+
+[data-theme="dark"] .rowLabel {
+  color: var(--coral-300);
+}
+
+.rowHint {
+  font-size: 11px;
+  color: var(--text-tertiary);
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.rowValue {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.valueNegative {
+  color: var(--coral-600);
+}
+
+[data-theme="dark"] .valueNegative {
+  color: var(--coral-300);
+}
+
+/* "Left to spend" satırı vurgulu */
+.rowEmphasis {
+  background: linear-gradient(90deg, var(--coral-100), var(--coral-50));
+  border-bottom-color: var(--coral-200);
+}
+
+[data-theme="dark"] .rowEmphasis {
+  background: rgba(238, 154, 146, 0.10);
+}
+
+.rowEmphasis .rowValue {
+  font-size: 18px;
+  font-weight: 800;
+}
+
+/* "Days left" satırı (Excel'de sayı gösteriyordu, biz daha şık yapıyoruz) */
+.rowDays {
+  background: var(--bg-secondary);
+  border-top: 1px dashed var(--border-grid);
+  border-bottom: none;
+}
+
+.rowDays:hover {
+  background: var(--bg-tertiary);
+}
+
+.rowDays .rowLabel {
+  color: var(--text-secondary);
+}
+
+.rowDaysValue {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--sage-600);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.03em;
+}
+
+[data-theme="dark"] .rowDaysValue {
+  color: var(--sage-300);
+}
+
+.rowDaysUnit {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-tertiary);
+  text-transform: lowercase;
+  letter-spacing: 0;
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 540px) {
+  .header,
+  .row {
+    padding: var(--space-3) var(--space-4);
+  }
+
+  .title { font-size: 15px; }
+  .rowLabel { font-size: 11px; }
+  .rowValue { font-size: 15px; }
+  .rowEmphasis .rowValue { font-size: 17px; }
+  .rowDaysValue { font-size: 20px; }
+}

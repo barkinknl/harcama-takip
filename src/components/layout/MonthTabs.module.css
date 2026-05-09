@@ -1,0 +1,196 @@
+.bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  background: var(--bg-elevated);
+  backdrop-filter: blur(var(--blur-md)) saturate(180%);
+  -webkit-backdrop-filter: blur(var(--blur-md)) saturate(180%);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ---------- year control ---------- */
+.yearControl {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px;
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+}
+
+.yearBtn {
+  width: 26px;
+  height: 26px;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  transition: background var(--transition-base), color var(--transition-base);
+}
+
+.yearBtn:hover:not(:disabled) {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.yearBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.yearLabel {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
+  padding: 0 4px;
+  letter-spacing: 0.02em;
+}
+
+/* ---------- divider ---------- */
+.divider {
+  width: 1px;
+  height: 24px;
+  background: var(--border-strong);
+  flex-shrink: 0;
+  margin: 0 4px;
+}
+
+/* ---------- scroll area ---------- */
+.scroll {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* ---------- tab ---------- */
+.tab {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 34px;
+  padding: 0 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  border-radius: var(--radius-md);
+  transition: background var(--transition-base),
+    color var(--transition-base),
+    transform var(--transition-fast);
+  flex-shrink: 0;
+  letter-spacing: -0.01em;
+  overflow: hidden;
+}
+
+.tab:hover {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+.tab.active {
+  background: var(--tab-color, var(--accent-primary-soft));
+  color: var(--text-primary);
+  font-weight: 700;
+  box-shadow: var(--shadow-sm);
+}
+
+.tab.active::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.3);
+  pointer-events: none;
+}
+
+[data-theme="dark"] .tab.active::before {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.tabBar {
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: 4px;
+  height: 3px;
+  border-radius: var(--radius-full);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.tab.active .tabBar {
+  opacity: 1;
+}
+
+.tabShort {
+  display: none;
+}
+
+.tabLong {
+  display: inline;
+}
+
+@media (max-width: 900px) {
+  .tabShort {
+    display: inline;
+  }
+
+  .tabLong {
+    display: none;
+  }
+}
+
+/* ---------- planlama tab ---------- */
+.planning {
+  background: var(--amber-100);
+  color: var(--amber-500);
+  border: 1px dashed var(--amber-300);
+}
+
+[data-theme="dark"] .planning {
+  background: rgba(236, 195, 107, 0.10);
+  border-color: rgba(236, 195, 107, 0.3);
+  color: var(--amber-300);
+}
+
+.planning:hover {
+  background: var(--amber-300);
+  color: #fff;
+  border-style: solid;
+}
+
+[data-theme="dark"] .planning:hover {
+  background: rgba(236, 195, 107, 0.18);
+  color: var(--amber-300);
+}
+
+.planning.active {
+  background: linear-gradient(135deg, var(--amber-300), var(--amber-500));
+  color: #fff;
+  border-color: var(--amber-500);
+  border-style: solid;
+}
+
+@media (max-width: 540px) {
+  .bar {
+    padding: var(--space-2);
+  }
+
+  .tab {
+    padding: 0 10px;
+    font-size: 12px;
+  }
+}

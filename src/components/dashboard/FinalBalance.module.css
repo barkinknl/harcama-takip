@@ -1,0 +1,147 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+
+/* ---------- header (Excel'deki teal/dusty blue başlık) ---------- */
+.header {
+  padding: var(--space-3) var(--space-4);
+  background: linear-gradient(135deg, var(--teal-200), var(--teal-300));
+  color: var(--teal-700, var(--teal-500));
+  border-bottom: 1px solid var(--teal-300);
+  text-align: center;
+}
+
+[data-theme="dark"] .header {
+  background: linear-gradient(180deg, rgba(143, 188, 177, 0.18), rgba(98, 156, 143, 0.12));
+  border-bottom-color: var(--border-strong);
+}
+
+.title {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #2d5a52;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.4);
+}
+
+[data-theme="dark"] .title {
+  color: var(--teal-300);
+  text-shadow: none;
+}
+
+/* ---------- rows ---------- */
+.rows {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 24px 1fr auto;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 10px var(--space-4);
+  border-bottom: 1px solid var(--border-grid);
+  font-size: 13px;
+  transition: background var(--transition-base);
+}
+
+.row:hover {
+  background: var(--bg-tertiary);
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+.rowIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-tertiary);
+}
+
+.rowLabel {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary);
+}
+
+.rowValue {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.valueExpense {
+  color: var(--coral-600);
+}
+
+[data-theme="dark"] .valueExpense {
+  color: var(--coral-300);
+}
+
+.valueIncome {
+  color: var(--sage-600);
+}
+
+[data-theme="dark"] .valueIncome {
+  color: var(--sage-300);
+}
+
+/* ---------- balance highlight ---------- */
+.rowBalance {
+  background: var(--teal-50);
+  border-bottom: none;
+  border-top: 1px dashed var(--border-grid);
+  padding-top: var(--space-3);
+  padding-bottom: var(--space-3);
+}
+
+[data-theme="dark"] .rowBalance {
+  background: rgba(143, 188, 177, 0.06);
+}
+
+.rowBalance .rowLabel {
+  font-size: 12px;
+  color: var(--text-primary);
+}
+
+.rowBalance .rowValue {
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.rowBalance .rowIcon {
+  color: var(--teal-500);
+}
+
+[data-theme="dark"] .rowBalance .rowIcon {
+  color: var(--teal-300);
+}
+
+.balancePositive .rowValue {
+  color: var(--sage-700);
+}
+
+[data-theme="dark"] .balancePositive .rowValue {
+  color: var(--sage-300);
+}
+
+.balanceNegative .rowValue {
+  color: var(--coral-600);
+}
+
+[data-theme="dark"] .balanceNegative .rowValue {
+  color: var(--coral-300);
+}
